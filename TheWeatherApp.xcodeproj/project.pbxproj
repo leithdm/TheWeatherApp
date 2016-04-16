@@ -19,6 +19,8 @@
 		012755791CC22EA700959B47 /* APIWeatherOnline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012755781CC22EA700959B47 /* APIWeatherOnline.swift */; };
 		0127557B1CC22F7800959B47 /* APIWeatherOnline-Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127557A1CC22F7800959B47 /* APIWeatherOnline-Constants.swift */; };
 		012755811CC232D700959B47 /* CityWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012755801CC232D700959B47 /* CityWeatherViewController.swift */; };
+		0134AEA51CC2871B000C5EFE /* TodaysForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0134AEA41CC2871B000C5EFE /* TodaysForecastCell.swift */; };
+		0134AEA81CC28E8E000C5EFE /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0134AEA71CC28E8E000C5EFE /* Day.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		012755781CC22EA700959B47 /* APIWeatherOnline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIWeatherOnline.swift; sourceTree = "<group>"; };
 		0127557A1CC22F7800959B47 /* APIWeatherOnline-Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIWeatherOnline-Constants.swift"; sourceTree = "<group>"; };
 		012755801CC232D700959B47 /* CityWeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityWeatherViewController.swift; sourceTree = "<group>"; };
+		0134AEA41CC2871B000C5EFE /* TodaysForecastCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodaysForecastCell.swift; sourceTree = "<group>"; };
+		0134AEA71CC28E8E000C5EFE /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 			children = (
 				0127557C1CC22FC100959B47 /* API */,
 				0127557E1CC22FE200959B47 /* Model */,
+				0134AEA61CC28721000C5EFE /* View */,
 				0127557D1CC22FD800959B47 /* Controllers */,
 				0127557F1CC22FFF00959B47 /* Resources */,
 			);
@@ -156,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				012755761CC22C4D00959B47 /* City.swift */,
+				0134AEA71CC28E8E000C5EFE /* Day.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -170,6 +176,14 @@
 				012755481CC21EB900959B47 /* Main.storyboard */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		0134AEA61CC28721000C5EFE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0134AEA41CC2871B000C5EFE /* TodaysForecastCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,7 +322,9 @@
 				012755791CC22EA700959B47 /* APIWeatherOnline.swift in Sources */,
 				012755731CC222A100959B47 /* CityListViewController.swift in Sources */,
 				012755811CC232D700959B47 /* CityWeatherViewController.swift in Sources */,
+				0134AEA81CC28E8E000C5EFE /* Day.swift in Sources */,
 				012755771CC22C4D00959B47 /* City.swift in Sources */,
+				0134AEA51CC2871B000C5EFE /* TodaysForecastCell.swift in Sources */,
 				012755751CC224A800959B47 /* CityPickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,6 +552,7 @@
 				0127556B1CC21EB900959B47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0127556C1CC21EB900959B47 /* Build configuration list for PBXNativeTarget "TheWeatherAppTests" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +561,7 @@
 				0127556E1CC21EB900959B47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0127556F1CC21EB900959B47 /* Build configuration list for PBXNativeTarget "TheWeatherAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -552,6 +570,7 @@
 				012755711CC21EB900959B47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

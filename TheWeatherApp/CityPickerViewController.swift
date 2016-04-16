@@ -70,8 +70,8 @@ class CityPickerViewController: UIViewController, UITableViewDelegate, UITableVi
 		searchTask = APIWeatherOnline.sharedInstance().taskForResource(parameters) { [unowned self] jsonResult, error in
 			
 			// Handle the error case
-			if let error = error {
-				print("Error searching for cities: \(error.localizedDescription)")
+			guard error == nil else {
+				print("Error searching for cities: \(error!.localizedDescription)")
 				return
 			}
 			
