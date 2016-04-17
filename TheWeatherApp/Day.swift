@@ -25,7 +25,7 @@ class Day: NSObject {
 	var maxTempC: String?
 	var minTempC: String?
 	var maxTemp_hours = [String]()
-	var weatherIconUrl: [String]?
+	var weatherIconUrl = [String]()
 	
 	var times = [
 		HoursInTheDay.Midnight,

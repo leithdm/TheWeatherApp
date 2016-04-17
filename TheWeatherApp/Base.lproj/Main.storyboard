@@ -76,7 +76,7 @@
                                             <constraint firstAttribute="height" constant="35" id="uxo-FN-n01"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="25"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4X-cF-019">
@@ -85,95 +85,33 @@
                                             <constraint firstAttribute="height" constant="30" id="CV9-Vk-F5j"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="18"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QT2-sU-Rnm">
-                                        <rect key="frame" x="255" y="89" width="80" height="80"/>
-                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="90"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QT2-sU-Rnm">
+                                        <rect key="frame" x="255" y="89" width="100" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="2Zp-qw-0C7"/>
+                                            <constraint firstAttribute="width" constant="100" id="TKv-89-Q5k"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="70"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="BJH-M0-3ha" firstAttribute="trailing" secondItem="c0A-B7-aW5" secondAttribute="trailingMargin" id="1qK-r5-fdk"/>
+                                    <constraint firstItem="QT2-sU-Rnm" firstAttribute="centerX" secondItem="c0A-B7-aW5" secondAttribute="centerX" constant="5" id="35R-IA-ifD"/>
                                     <constraint firstItem="BJH-M0-3ha" firstAttribute="leading" secondItem="x4X-cF-019" secondAttribute="leading" id="Hai-5t-LTd"/>
                                     <constraint firstItem="BJH-M0-3ha" firstAttribute="trailing" secondItem="x4X-cF-019" secondAttribute="trailing" id="JZa-fG-16c"/>
                                     <constraint firstItem="BJH-M0-3ha" firstAttribute="leading" secondItem="c0A-B7-aW5" secondAttribute="leadingMargin" id="OaX-AW-nVM"/>
-                                    <constraint firstItem="x4X-cF-019" firstAttribute="centerX" secondItem="QT2-sU-Rnm" secondAttribute="centerX" id="Tqx-Y3-siJ"/>
                                     <constraint firstItem="BJH-M0-3ha" firstAttribute="top" secondItem="c0A-B7-aW5" secondAttribute="topMargin" id="X0a-jm-tQn"/>
                                     <constraint firstAttribute="height" constant="190" id="YYv-1G-5Ze"/>
                                     <constraint firstItem="x4X-cF-019" firstAttribute="top" secondItem="BJH-M0-3ha" secondAttribute="bottom" constant="8" symbolic="YES" id="gMj-yR-VYw"/>
+                                    <constraint firstItem="QT2-sU-Rnm" firstAttribute="top" secondItem="x4X-cF-019" secondAttribute="bottom" constant="8" id="kJ8-Qb-m2u"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZG5-Uk-9Z7">
-                                <rect key="frame" x="0.0" y="253" width="600" height="137"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.85032327586206902" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="137" id="H1O-WS-s5K"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Lqo-mA-VDb">
-                                    <size key="itemSize" width="100" height="137"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TodaysForecastCell" id="bi8-gZ-7xx" customClass="TodaysForecastCell" customModule="TheWeatherApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="137"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="137"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackcloud" translatesAutoresizingMaskIntoConstraints="NO" id="WlR-Or-ZHx">
-                                                    <rect key="frame" x="35" y="54" width="30" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="30" id="Fyh-Hs-hyZ"/>
-                                                        <constraint firstAttribute="height" constant="30" id="YnG-xk-sec"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpD-5p-KJg">
-                                                    <rect key="frame" x="0.0" y="116" width="100" height="21"/>
-                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKt-HM-fya">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="21.5"/>
-                                                    <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="18"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="FpD-5p-KJg" secondAttribute="trailing" id="8jw-np-nbM"/>
-                                            <constraint firstItem="WKt-HM-fya" firstAttribute="top" secondItem="bi8-gZ-7xx" secondAttribute="top" id="96f-RX-7qA"/>
-                                            <constraint firstItem="WlR-Or-ZHx" firstAttribute="centerX" secondItem="bi8-gZ-7xx" secondAttribute="centerX" id="Haw-AC-AUe"/>
-                                            <constraint firstItem="WKt-HM-fya" firstAttribute="leading" secondItem="bi8-gZ-7xx" secondAttribute="leading" id="SwI-zG-aVh"/>
-                                            <constraint firstAttribute="bottom" secondItem="FpD-5p-KJg" secondAttribute="bottom" id="WoB-Xg-hy2"/>
-                                            <constraint firstItem="WlR-Or-ZHx" firstAttribute="centerY" secondItem="bi8-gZ-7xx" secondAttribute="centerY" id="ZXu-Dn-4nd"/>
-                                            <constraint firstAttribute="trailing" secondItem="FpD-5p-KJg" secondAttribute="trailing" id="cpH-Ha-LzP"/>
-                                            <constraint firstAttribute="bottom" secondItem="FpD-5p-KJg" secondAttribute="bottom" id="ddm-mn-twh"/>
-                                            <constraint firstItem="FpD-5p-KJg" firstAttribute="leading" secondItem="bi8-gZ-7xx" secondAttribute="leading" id="haJ-2R-Ys1"/>
-                                            <constraint firstAttribute="trailing" secondItem="WKt-HM-fya" secondAttribute="trailing" id="yUR-9U-35Y"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="hour" destination="WKt-HM-fya" id="0Z8-e9-jK3"/>
-                                            <outlet property="imageForecast" destination="WlR-Or-ZHx" id="JYH-vu-Jjx"/>
-                                            <outlet property="temperature" destination="FpD-5p-KJg" id="9qo-Yc-U1s"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="Q4f-UH-yN5" id="ko5-5X-5gx"/>
-                                    <outlet property="delegate" destination="Q4f-UH-yN5" id="wfZ-lA-Jbi"/>
-                                </connections>
-                            </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ATr-vv-Dbz">
                                 <rect key="frame" x="0.0" y="388" width="600" height="212"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
@@ -187,30 +125,30 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="1003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="H" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnK-eb-Jm5">
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnK-eb-Jm5">
                                                     <rect key="frame" x="524" y="14" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="Nfe-TA-tzk"/>
                                                         <constraint firstAttribute="width" constant="32" id="cVP-ds-dph"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6SW-qp-dfF">
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6SW-qp-dfF">
                                                     <rect key="frame" x="8" y="14" width="150" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="150" id="E8F-zA-1di"/>
                                                         <constraint firstAttribute="height" constant="32" id="dnj-qS-1dX"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" tag="1002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackcloud" translatesAutoresizingMaskIntoConstraints="NO" id="kbg-bb-35T">
                                                     <rect key="frame" x="284" y="14" width="32" height="32"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="1004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXa-Mx-K3f">
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXa-Mx-K3f">
                                                     <rect key="frame" x="560" y="14" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="N8E-j2-ms5"/>
@@ -242,6 +180,73 @@
                                     <outlet property="delegate" destination="Q4f-UH-yN5" id="QRg-G9-FqY"/>
                                 </connections>
                             </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZG5-Uk-9Z7">
+                                <rect key="frame" x="0.0" y="253" width="600" height="137"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.85032327586206902" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="137" id="H1O-WS-s5K"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Lqo-mA-VDb">
+                                    <size key="itemSize" width="100" height="137"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TodaysForecastCell" id="bi8-gZ-7xx" customClass="TodaysForecastCell" customModule="TheWeatherApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="137"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="137"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WlR-Or-ZHx">
+                                                    <rect key="frame" x="35" y="54" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="Fyh-Hs-hyZ"/>
+                                                        <constraint firstAttribute="height" constant="30" id="YnG-xk-sec"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="21" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpD-5p-KJg">
+                                                    <rect key="frame" x="0.0" y="116" width="100" height="21"/>
+                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="20.5" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKt-HM-fya">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="20.5"/>
+                                                    <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="18"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="FpD-5p-KJg" secondAttribute="trailing" id="8jw-np-nbM"/>
+                                            <constraint firstItem="WKt-HM-fya" firstAttribute="top" secondItem="bi8-gZ-7xx" secondAttribute="top" id="96f-RX-7qA"/>
+                                            <constraint firstItem="WlR-Or-ZHx" firstAttribute="centerX" secondItem="bi8-gZ-7xx" secondAttribute="centerX" id="Haw-AC-AUe"/>
+                                            <constraint firstItem="WKt-HM-fya" firstAttribute="leading" secondItem="bi8-gZ-7xx" secondAttribute="leading" id="SwI-zG-aVh"/>
+                                            <constraint firstAttribute="bottom" secondItem="FpD-5p-KJg" secondAttribute="bottom" id="WoB-Xg-hy2"/>
+                                            <constraint firstItem="WlR-Or-ZHx" firstAttribute="centerY" secondItem="bi8-gZ-7xx" secondAttribute="centerY" id="ZXu-Dn-4nd"/>
+                                            <constraint firstAttribute="trailing" secondItem="FpD-5p-KJg" secondAttribute="trailing" id="cpH-Ha-LzP"/>
+                                            <constraint firstAttribute="bottom" secondItem="FpD-5p-KJg" secondAttribute="bottom" id="ddm-mn-twh"/>
+                                            <constraint firstItem="FpD-5p-KJg" firstAttribute="leading" secondItem="bi8-gZ-7xx" secondAttribute="leading" id="haJ-2R-Ys1"/>
+                                            <constraint firstAttribute="trailing" secondItem="WKt-HM-fya" secondAttribute="trailing" id="yUR-9U-35Y"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="hour" destination="WKt-HM-fya" id="0Z8-e9-jK3"/>
+                                            <outlet property="imageForecast" destination="WlR-Or-ZHx" id="JYH-vu-Jjx"/>
+                                            <outlet property="temperature" destination="FpD-5p-KJg" id="9qo-Yc-U1s"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Q4f-UH-yN5" id="ko5-5X-5gx"/>
+                                    <outlet property="delegate" destination="Q4f-UH-yN5" id="wfZ-lA-Jbi"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

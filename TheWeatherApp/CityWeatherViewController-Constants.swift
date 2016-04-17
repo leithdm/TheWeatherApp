@@ -13,9 +13,10 @@ extension CityWeatherViewController {
 	
 	
 	struct Constants {
-		static let FrameDivisor: CGFloat = 4.0
+		static let FrameDivisor: CGFloat = 3.0
 		static let ReusableCollectionViewCell = "TodaysForecastCell"
 		static let ReusableTableViewCell = "TableViewCell"
+		static let DateFormatter = "yyyy-MM-dd"
 	}
 	
 	
@@ -31,6 +32,9 @@ extension CityWeatherViewController {
 		static let MinTempC = "mintempC"
 		static let Hourly = "hourly"
 		static let HourlyTempC = "tempC"
+		static let WeatherIconURL = "weatherIconUrl"
+		static let Value = "value"
+		static let QueryParameter = "q"
 	}
 	
 	struct DaysOfTheWeek {
