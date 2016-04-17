@@ -11,30 +11,28 @@ import UIKit
 
 extension CityWeatherViewController {
 	
-	
 	struct Constants {
-		static let FrameDivisor: CGFloat = 3.0
-		static let ReusableCollectionViewCell = "TodaysForecastCell"
-		static let ReusableTableViewCell = "TableViewCell"
-		static let DateFormatter = "yyyy-MM-dd"
+		static let FrameDivisor: CGFloat		= 3.0
+		static let ReusableCollectionViewCell	= "TodaysForecastCell"
+		static let ReusableTableViewCell		= "TableViewCell"
+		static let DateFormatter				= "yyyy-MM-dd"
 	}
 	
-	
 	struct JSONParameters {
-		static let Data = "data"
+		static let Data				= "data"
 		static let CurrentCondition = "current_condition"
-		static let TempC = "temp_C"
-		static let WeatherDescription = "weatherDesc"
-		static let WeatherDescriptionValue = "value"
-		static let Weather = "weather"
-		static let Date = "date"
-		static let MaxTempC = "maxtempC"
-		static let MinTempC = "mintempC"
-		static let Hourly = "hourly"
-		static let HourlyTempC = "tempC"
-		static let WeatherIconURL = "weatherIconUrl"
-		static let Value = "value"
-		static let QueryParameter = "q"
+		static let TempC			= "temp_C"
+		static let WeatherDesc		= "weatherDesc"
+		static let WeatherDescValue = "value"
+		static let Weather			= "weather"
+		static let Date				= "date"
+		static let MaxTempC			= "maxtempC"
+		static let MinTempC			= "mintempC"
+		static let Hourly			= "hourly"
+		static let HourlyTempC		= "tempC"
+		static let WeatherIconURL	= "weatherIconUrl"
+		static let Value			= "value"
+		static let QueryParameter	= "q"
 	}
 	
 	struct DaysOfTheWeek {
@@ -51,5 +49,4 @@ extension CityWeatherViewController {
 		static let ErrorStatusMessage = "status_message"
 		static let ConfigBaseImageURL = "base_url"
 	}
-	
 }

@@ -10,19 +10,15 @@ import Foundation
 import UIKit
 
 extension CityPickerViewController {
-	
-	
+
 	struct Constants {
 		static let ReusableTableViewCell = "CitySearchCell"
 	}
 	
-	
 	struct JSONParameters {
-		static let QueryParameter = "q"
-		static let Data = "data"
-		static let Request = "request"
-		static let Query = "query"
+		static let QueryParameter	= "q"
+		static let Data				= "data"
+		static let Request			= "request"
+		static let Query			= "query"
 	}
-	
-	
 }

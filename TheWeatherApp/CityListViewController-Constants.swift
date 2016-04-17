@@ -10,14 +10,10 @@ import Foundation
 import UIKit
 
 extension CityListViewController {
-	
-	
+
 	struct Constants {
-		static let ReusableTableViewCell = "CityListCell"
-		static let CityWeatherViewController = "CityWeatherViewController"
-		static let CityPickerViewController = "CityPickerViewController"
+		static let ReusableTableViewCell		= "CityListCell"
+		static let CityWeatherViewController	= "CityWeatherViewController"
+		static let CityPickerViewController		= "CityPickerViewController"
 	}
-	
-	
-	
 }

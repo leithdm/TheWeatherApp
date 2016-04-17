@@ -76,13 +76,13 @@ class CityWeatherViewController: UIViewController {
 				})
 				
 				//todays short weather description
-				guard let weatherDesc = current[JSONParameters.WeatherDescription] as? [[String:AnyObject]] else {
+				guard let weatherDesc = current[JSONParameters.WeatherDesc] as? [[String:AnyObject]] else {
 					print("Cannot find key 'weatherDesc' in \(currentCondition)")
 					return
 				}
 				
 				for description in weatherDesc {
-					guard let weatherDescValue = description[JSONParameters.WeatherDescriptionValue] as? String else {
+					guard let weatherDescValue = description[JSONParameters.WeatherDescValue] as? String else {
 						print("Cannot find key 'weatherDesc' in \(weatherDesc)")
 						return
 				 }
