@@ -13,7 +13,7 @@ extension APIWeatherOnline {
 	struct Constants {
 		
 		// MARK: - URLs
-		static let ApiKey = "a98286da12ba492ea0490658161604"
+		static let ApiKey = "568945f33045470e8f3202100161604"
 		static let BaseUrl = "http://api.worldweatheronline.com/premium/v1/weather.ashx"
 	}
 	

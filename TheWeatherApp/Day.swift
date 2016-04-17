@@ -20,7 +20,9 @@ class Day: NSObject {
 	var date: String?
 	var maxTempC: String?
 	var minTempC: String?
-	var maxTemp_hours: [String]?
+	var maxTemp_hours = [String]()
+	var weatherIconUrl: [String]?
+	var times = ["00", "03", "06", "09", "12", "15", "18", "21"]
 	
 }
 

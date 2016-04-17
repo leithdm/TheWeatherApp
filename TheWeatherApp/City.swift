@@ -15,6 +15,7 @@ class City: NSObject {
 	}
 	
 	var name: String
+	var forecast = [Day]()
 	
 	init(dictionary: [String : AnyObject]) {
 		name = dictionary[Keys.Name] as! String

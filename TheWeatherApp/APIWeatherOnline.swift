@@ -27,7 +27,7 @@ class APIWeatherOnline: NSObject {
 		// Add in the API Key
 
 		mutableParameters["format"] = "json"
-		mutableParameters["num_of_days"] = "5"
+		mutableParameters["num_of_days"] = "7"
 		mutableParameters["key"] = Constants.ApiKey
 		
 		let urlString = Constants.BaseUrl + APIWeatherOnline.escapedParameters(mutableParameters)
