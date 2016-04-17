@@ -10,11 +10,15 @@ import Foundation
 
 class Day: NSObject {
 	
-	struct Keys {
-		static let Date = "date"
-		static let MaxTempC = "maxTempC"
-		static let MinTempC = "minTempC"
-		static let MaxTemp_hours = "maxTemp_hours"
+	struct HoursInTheDay {
+		static let Midnight		= "00"
+		static let ThreeAM		= "03"
+		static let SixAM		= "06"
+		static let NineAM		= "09"
+		static let Midday		= "12"
+		static let ThreePM		= "15"
+		static let SixPM		= "18"
+		static let NinePM		= "21"
 	}
 	
 	var date: String?
@@ -22,7 +26,17 @@ class Day: NSObject {
 	var minTempC: String?
 	var maxTemp_hours = [String]()
 	var weatherIconUrl: [String]?
-	var times = ["00", "03", "06", "09", "12", "15", "18", "21"]
+	
+	var times = [
+		HoursInTheDay.Midnight,
+		HoursInTheDay.ThreeAM,
+		HoursInTheDay.SixAM,
+		HoursInTheDay.NineAM,
+		HoursInTheDay.Midday,
+		HoursInTheDay.ThreePM,
+		HoursInTheDay.SixPM,
+		HoursInTheDay.NinePM
+		]
 	
 }
 

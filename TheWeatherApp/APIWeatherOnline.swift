@@ -10,31 +10,35 @@ import Foundation
 
 class APIWeatherOnline: NSObject {
 	
+	//MARK: properties
+	
 	typealias CompletionHander = (result: AnyObject!, error: NSError?) -> Void
 	var session: NSURLSession
+	
+	
+	//MARK: initializer 
 	
 	override init() {
 		session = NSURLSession.sharedSession()
 		super.init()
 	}
 	
-	// MARK: - All purpose task method for data
+	
+	//MARK: all purpose task method for data
 	
 	func taskForResource(parameters: [String : AnyObject], completionHandler: CompletionHander) -> NSURLSessionDataTask {
 		
 		var mutableParameters = parameters
 		
-		// Add in the API Key
+		//add parameters
 
-		mutableParameters["format"] = "json"
-		mutableParameters["num_of_days"] = "7"
-		mutableParameters["key"] = Constants.ApiKey
+		mutableParameters[JSONKeys.Format] = JSONParameterValues.JSON
+		mutableParameters[JSONKeys.DaysForecast] = JSONParameterValues.DaysForecast
+		mutableParameters[JSONKeys.Key] = Constants.ApiKey
 		
 		let urlString = Constants.BaseUrl + APIWeatherOnline.escapedParameters(mutableParameters)
 		let url = NSURL(string: urlString)!
 		let request = NSURLRequest(URL: url)
-		
-		print(url)
 		
 		let task = session.dataTaskWithRequest(request) {data, response, downloadError in
 			
@@ -51,7 +55,7 @@ class APIWeatherOnline: NSObject {
 		return task
 	}
 	
-	// Parsing the JSON
+	//Mark: parsing the JSON data
 	
 	class func parseJSONWithCompletionHandler(data: NSData, completionHandler: CompletionHander) {
 		var parsingError: NSError? = nil
@@ -72,7 +76,7 @@ class APIWeatherOnline: NSObject {
 		}
 	}
 	
-	// URL Encoding a dictionary into a parameter string
+	//MARK: URL encoding a dictionary into a parameter string
 	
 	class func escapedParameters(parameters: [String : AnyObject]) -> String {
 		
@@ -92,12 +96,11 @@ class APIWeatherOnline: NSObject {
 				print("Warning: trouble escaping string \"\(stringValue)\"")
 			}
 		}
-		
 		return (!urlVars.isEmpty ? "?" : "") + urlVars.joinWithSeparator("&")
 	}
 	
 	
-	// MARK: - Shared Instance
+	//MARK: shared instance
 	
 	class func sharedInstance() -> APIWeatherOnline {
 		struct Singleton {
@@ -107,7 +110,7 @@ class APIWeatherOnline: NSObject {
 	}
 	
 	
-	//create a more detailed error
+	//MARK: create a more detailed error
 	
 	class func errorForData(data: NSData?, response: NSURLResponse?, error: NSError) -> NSError {
 		

@@ -31,11 +31,7 @@ class CityWeatherViewController: UIViewController {
 	
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
-		
-		// Lay out the collection view so that cells take up 1/4 of the width
-		let width = CGRectGetWidth(view.frame) / 4
-		let layout = collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
-		layout.itemSize = CGSize(width: width, height: width) //want them to be square
+		layoutCollectionView()
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -54,12 +50,12 @@ class CityWeatherViewController: UIViewController {
 				return
 			}
 			
-			guard let data = jsonResult["data"] as? NSDictionary else {
+			guard let data = jsonResult[JSONParameters.Data] as? NSDictionary else {
 				print("Cannot find key 'data' in \(jsonResult)")
 				return
 			}
 			
-			guard let current_condition = data["current_condition"] as? [[String:AnyObject]] else {
+			guard let current_condition = data[JSONParameters.CurrentCondition] as? [[String:AnyObject]] else {
 				print("Cannot find key 'current_condition' in \(data)")
 				return
 			}
@@ -68,7 +64,7 @@ class CityWeatherViewController: UIViewController {
 			for current in current_condition {
 				
 				//todays temperature in C
-				guard let temp_C = current["temp_C"] as? String else {
+				guard let temp_C = current[JSONParameters.TempC] as? String else {
 					print("Cannot find key 'temp_C' in \(current_condition)")
 					return
 				}
@@ -78,13 +74,13 @@ class CityWeatherViewController: UIViewController {
 				})
 				
 				//todays short weather description
-				guard let weatherDesc = current["weatherDesc"] as? [[String:AnyObject]] else {
+				guard let weatherDesc = current[JSONParameters.WeatherDescription] as? [[String:AnyObject]] else {
 					print("Cannot find key 'weatherDesc' in \(current_condition)")
 					return
 				}
 				
 				for description in weatherDesc {
-					guard let weatherDescValue = description["value"] as? String else {
+					guard let weatherDescValue = description[JSONParameters.WeatherDescriptionValue] as? String else {
 						print("Cannot find key 'weatherDesc' in \(weatherDesc)")
 						return
 				 }
@@ -96,7 +92,7 @@ class CityWeatherViewController: UIViewController {
 				
 				//date, minTemp, maxTemp for each day requested in forecast
 				
-				guard let weather = data["weather"] as? [[String: AnyObject]] else {
+				guard let weather = data[JSONParameters.Weather] as? [[String: AnyObject]] else {
 					print("Cannot find key 'weather' in \(data)")
 					return
 				}
@@ -106,28 +102,28 @@ class CityWeatherViewController: UIViewController {
 					
 					let day = Day()
 					
-					guard let date = eachDay["date"] as? String else {
+					guard let date = eachDay[JSONParameters.Date] as? String else {
 						print("Cannot find key 'date' in \(weather)")
 						return
 					}
 					
-					guard let maxTempC = eachDay["maxtempC"] as? String else {
+					guard let maxTempC = eachDay[JSONParameters.MaxTempC] as? String else {
 						print("Cannot find key 'maxTempC' in \(weather)")
 						return
 					}
 					
-					guard let minTempC = eachDay["mintempC"] as? String else {
+					guard let minTempC = eachDay[JSONParameters.MinTempC] as? String else {
 						print("Cannot find key 'minTempC' in \(weather)")
 						return
 					}
 					
-					guard let hourly = eachDay["hourly"] as? [[String: AnyObject]] else {
+					guard let hourly = eachDay[JSONParameters.Hourly] as? [[String: AnyObject]] else {
 						print("Cannot find key 'hourly' in \(weather)")
 						return
 					}
 					
 					for hour in hourly {
-						guard let tempC = hour["tempC"] as? String else {
+						guard let tempC = hour[JSONParameters.HourlyTempC] as? String else {
 							print("Cannot find key 'tempC' in \(hourly)")
 							return
 						}
@@ -170,6 +166,49 @@ class CityWeatherViewController: UIViewController {
 		}
 	}
 	
+	
+	func getIntegerDayOfWeek(today:String)->Int {
+		let formatter  = NSDateFormatter()
+		formatter.dateFormat = "yyyy-MM-dd"
+		let todayDate = formatter.dateFromString(today)!
+		let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+		let myComponents = myCalendar.components(.Weekday, fromDate: todayDate)
+		let weekDay = myComponents.weekday
+		return weekDay
+	}
+	
+	
+	func getStringDayOfWeek(day: Int) -> String {
+		var computedDayOfWeek = ""
+		switch day {
+		case 1:
+			computedDayOfWeek = DaysOfTheWeek.Sunday
+		case 2:
+			computedDayOfWeek = DaysOfTheWeek.Monday
+		case 3:
+			computedDayOfWeek = DaysOfTheWeek.Tuesday
+		case 4:
+			computedDayOfWeek = DaysOfTheWeek.Wednesday
+		case 5:
+			computedDayOfWeek = DaysOfTheWeek.Thursday
+		case 6:
+			computedDayOfWeek = DaysOfTheWeek.Friday
+		case 7:
+			computedDayOfWeek = DaysOfTheWeek.Saturday
+		default:
+			break
+		}
+		return computedDayOfWeek
+	}
+	
+	
+	func layoutCollectionView() {
+		// Lay out the collection view so that cells take up 1/4 of the width
+		let width = CGRectGetWidth(view.frame) / Constants.FrameDivisor
+		let layout = collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
+		layout.itemSize = CGSize(width: width, height: width) //want them to be square
+	}
+	
 	func alertViewForError(error: NSError) {
 		//
 	}
@@ -185,12 +224,12 @@ extension CityWeatherViewController: UICollectionViewDataSource, UICollectionVie
 	}
 	
 	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 8
+		return APIWeatherOnline.Constants.NumberOfTimeSegments
 	}
 	
 	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 		
-		let cell = collectionView.dequeueReusableCellWithReuseIdentifier("TodaysForecastCell", forIndexPath: indexPath) as! TodaysForecastCell
+		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.ReusableCollectionViewCell, forIndexPath: indexPath) as! TodaysForecastCell
 		
 		if let day = city.forecast.first {
 			let maxTempHours = day.maxTemp_hours
@@ -209,13 +248,14 @@ extension CityWeatherViewController: UITableViewDelegate, UITableViewDataSource 
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 	
 		let day = city.forecast[indexPath.row]
-		let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath)
+		let cell = tableView.dequeueReusableCellWithIdentifier(Constants.ReusableTableViewCell, forIndexPath: indexPath)
 		
 		let dayOfWeek = cell.viewWithTag(1001) as! UILabel
 		let maxTemp = cell.viewWithTag(1003) as! UILabel
 		let minTemp = cell.viewWithTag(1004) as! UILabel
 		
-		dayOfWeek.text = day.date
+		let weekday = getIntegerDayOfWeek(day.date!)
+		dayOfWeek.text = getStringDayOfWeek(weekday)
 		maxTemp.text = day.maxTempC
 		minTemp.text = day.minTempC
 	
@@ -225,5 +265,4 @@ extension CityWeatherViewController: UITableViewDelegate, UITableViewDataSource 
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return city.forecast.count
 	}
-
 }

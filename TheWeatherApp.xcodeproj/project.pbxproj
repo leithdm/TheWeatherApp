@@ -21,6 +21,9 @@
 		012755811CC232D700959B47 /* CityWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012755801CC232D700959B47 /* CityWeatherViewController.swift */; };
 		0134AEA51CC2871B000C5EFE /* TodaysForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0134AEA41CC2871B000C5EFE /* TodaysForecastCell.swift */; };
 		0134AEA81CC28E8E000C5EFE /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0134AEA71CC28E8E000C5EFE /* Day.swift */; };
+		0134AEAA1CC39B41000C5EFE /* CityWeatherViewController-Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0134AEA91CC39B41000C5EFE /* CityWeatherViewController-Constants.swift */; };
+		0134AEAE1CC3A180000C5EFE /* CityPickerViewController-Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0134AEAD1CC3A180000C5EFE /* CityPickerViewController-Constants.swift */; };
+		0134AEB01CC3A49D000C5EFE /* CityListViewController-Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0134AEAF1CC3A49D000C5EFE /* CityListViewController-Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		012755801CC232D700959B47 /* CityWeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityWeatherViewController.swift; sourceTree = "<group>"; };
 		0134AEA41CC2871B000C5EFE /* TodaysForecastCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodaysForecastCell.swift; sourceTree = "<group>"; };
 		0134AEA71CC28E8E000C5EFE /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		0134AEA91CC39B41000C5EFE /* CityWeatherViewController-Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CityWeatherViewController-Constants.swift"; sourceTree = "<group>"; };
+		0134AEAD1CC3A180000C5EFE /* CityPickerViewController-Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CityPickerViewController-Constants.swift"; sourceTree = "<group>"; };
+		0134AEAF1CC3A49D000C5EFE /* CityListViewController-Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CityListViewController-Constants.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				012755781CC22EA700959B47 /* APIWeatherOnline.swift */,
-				0127557A1CC22F7800959B47 /* APIWeatherOnline-Constants.swift */,
+				0134AEAB1CC3A149000C5EFE /* Constants */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -153,6 +159,7 @@
 				012755721CC222A100959B47 /* CityListViewController.swift */,
 				012755741CC224A800959B47 /* CityPickerViewController.swift */,
 				012755801CC232D700959B47 /* CityWeatherViewController.swift */,
+				0134AEAC1CC3A15E000C5EFE /* Constants */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -184,6 +191,24 @@
 				0134AEA41CC2871B000C5EFE /* TodaysForecastCell.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		0134AEAB1CC3A149000C5EFE /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				0127557A1CC22F7800959B47 /* APIWeatherOnline-Constants.swift */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		0134AEAC1CC3A15E000C5EFE /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				0134AEAF1CC3A49D000C5EFE /* CityListViewController-Constants.swift */,
+				0134AEAD1CC3A180000C5EFE /* CityPickerViewController-Constants.swift */,
+				0134AEA91CC39B41000C5EFE /* CityWeatherViewController-Constants.swift */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,9 +344,12 @@
 			files = (
 				0127557B1CC22F7800959B47 /* APIWeatherOnline-Constants.swift in Sources */,
 				012755451CC21EB900959B47 /* AppDelegate.swift in Sources */,
+				0134AEAA1CC39B41000C5EFE /* CityWeatherViewController-Constants.swift in Sources */,
 				012755791CC22EA700959B47 /* APIWeatherOnline.swift in Sources */,
 				012755731CC222A100959B47 /* CityListViewController.swift in Sources */,
+				0134AEAE1CC3A180000C5EFE /* CityPickerViewController-Constants.swift in Sources */,
 				012755811CC232D700959B47 /* CityWeatherViewController.swift in Sources */,
+				0134AEB01CC3A49D000C5EFE /* CityListViewController-Constants.swift in Sources */,
 				0134AEA81CC28E8E000C5EFE /* Day.swift in Sources */,
 				012755771CC22C4D00959B47 /* City.swift in Sources */,
 				0134AEA51CC2871B000C5EFE /* TodaysForecastCell.swift in Sources */,

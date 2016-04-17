@@ -10,11 +10,11 @@ import Foundation
 
 extension APIWeatherOnline {
 	
+	
 	struct Constants {
-		
-		// MARK: - URLs
 		static let ApiKey = "568945f33045470e8f3202100161604"
 		static let BaseUrl = "http://api.worldweatheronline.com/premium/v1/weather.ashx"
+		static let NumberOfTimeSegments = 8 
 	}
 	
 	struct Keys {
@@ -23,4 +23,16 @@ extension APIWeatherOnline {
 		static let ConfigBaseImageURL = "base_url"
 	}
 	
+	struct JSONKeys {
+		static let Key = "key"
+		static let Format = "format"
+		static let DaysForecast = "num_of_days"
+		
+	}
+	
+	struct JSONParameterValues {
+		static let JSON = "json"
+		static let DaysForecast = "7"
+	}
+
 }

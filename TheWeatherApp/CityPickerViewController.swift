@@ -12,17 +12,20 @@ protocol CityPickerViewControllerDelegate {
 	func cityPicker(cityPicker: CityPickerViewController, didPickCity city: City?)
 }
 
-class CityPickerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class CityPickerViewController: UIViewController, UISearchBarDelegate {
+	
+	//MARK: properties
+	
+	var cities = [City]()
+	var delegate: CityPickerViewControllerDelegate?
+	var searchTask: NSURLSessionDataTask? 	// The most recent data download task
+	
+	//MARK: outlets
 	
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var searchBar: UISearchBar!
 	
-	var cities = [City]()
-	var delegate: CityPickerViewControllerDelegate?
-	
-	// The most recent data download task. We keep a reference to it so that it can be canceled every time the search text changes
-	var searchTask: NSURLSessionDataTask?
-	
+	//MARK: lifecycle methods
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -36,27 +39,17 @@ class CityPickerViewController: UIViewController, UITableViewDelegate, UITableVi
 	}
 	
 	
-	@IBAction func cancel(sender: UIBarButtonItem) {
-		self.delegate?.cityPicker(self, didPickCity: nil)
-		self.dismissViewControllerAnimated(true, completion: nil)
-	}
-	
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-	
 	//MARK: search bar delegate
 	
 	// Each time the search text changes we want to cancel any current download and start a new one
 	func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
 		
-		// Cancel the last task
+		//cancel the last task
 		if let task = searchTask {
 			task.cancel()
 		}
 		
-		// If the text is empty we are done
+		//if the text is empty then we are done
 		if searchText == "" {
 			cities = [City]()
 			tableView?.reloadData()
@@ -64,29 +57,29 @@ class CityPickerViewController: UIViewController, UITableViewDelegate, UITableVi
 			return
 		}
 		
-		// Start a new download
-		let parameters = ["q" : searchText]
+		//start a new download
+		let parameters = [JSONParameters.QueryParameter : searchText]
 		
 		searchTask = APIWeatherOnline.sharedInstance().taskForResource(parameters) { [unowned self] jsonResult, error in
 			
-			// Handle the error case
+			//handle the error case
 			guard error == nil else {
 				print("Error searching for cities: \(error!.localizedDescription)")
 				return
 			}
 			
-			guard let data = jsonResult["data"] as? NSDictionary else {
+			guard let data = jsonResult[JSONParameters.Data] as? NSDictionary else {
 				print("Cannot find key 'data' in \(jsonResult)")
 				return
 			}
 			
-			guard let request = data["request"] as? [[String:AnyObject]] else {
+			guard let request = data[JSONParameters.Request] as? [[String:AnyObject]] else {
 				print("Cannot find key 'request' in \(data)")
 				return
 			}
 			
 			for value in request {
-				guard let query = value["query"] as? String else {
+				guard let query = value[JSONParameters.Query] as? String else {
 					print("Cannot find key 'query' in \(value)")
 					return
 				}
@@ -97,7 +90,6 @@ class CityPickerViewController: UIViewController, UITableViewDelegate, UITableVi
 				dispatch_async(dispatch_get_main_queue()) {
 					self.tableView!.reloadData()
 				}
-				
 			}
 		}
 	}
@@ -106,13 +98,22 @@ class CityPickerViewController: UIViewController, UITableViewDelegate, UITableVi
 		searchBar.resignFirstResponder()
 	}
 	
+	//MARK: click cancel button
 	
-	// MARK: - Table View Delegate and Data Source
+	@IBAction func cancel(sender: UIBarButtonItem) {
+		self.delegate?.cityPicker(self, didPickCity: nil)
+		self.dismissViewControllerAnimated(true, completion: nil)
+	}
+	
+}
+
+// MARK: - Table View Delegate and Data Source
+
+extension CityPickerViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let CellReuseId = "CitySearchCell"
 		let city = cities[indexPath.row]
-		let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseId)!
+		let cell = tableView.dequeueReusableCellWithIdentifier(Constants.ReusableTableViewCell)!
 		cell.textLabel!.text = city.name
 		return cell
 	}
@@ -127,6 +128,5 @@ class CityPickerViewController: UIViewController, UITableViewDelegate, UITableVi
 		delegate?.cityPicker(self, didPickCity: city)
 		self.dismissViewControllerAnimated(true, completion: nil)
 	}
-	
 	
 }
