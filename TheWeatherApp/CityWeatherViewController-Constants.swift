@@ -12,7 +12,7 @@ import UIKit
 extension CityWeatherViewController {
 	
 	struct Constants {
-		static let FrameDivisor: CGFloat		= 3.0
+		static let FrameDivisor: CGFloat		= 4.0
 		static let ReusableCollectionViewCell	= "TodaysForecastCell"
 		static let ReusableTableViewCell		= "TableViewCell"
 		static let DateFormatter				= "yyyy-MM-dd"

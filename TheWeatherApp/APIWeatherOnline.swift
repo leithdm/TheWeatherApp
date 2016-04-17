@@ -38,6 +38,9 @@ class APIWeatherOnline: NSObject {
 		
 		let urlString = Constants.BaseUrl + APIWeatherOnline.escapedParameters(mutableParameters)
 		let url = NSURL(string: urlString)!
+
+		print(url)
+
 		let request = NSURLRequest(URL: url)
 		
 		let task = session.dataTaskWithRequest(request) {data, response, downloadError in

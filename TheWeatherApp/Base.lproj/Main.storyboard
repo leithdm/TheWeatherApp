@@ -75,7 +75,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="uxo-FN-n01"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="25"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="25"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -131,7 +131,7 @@
                                                         <constraint firstAttribute="height" constant="32" id="Nfe-TA-tzk"/>
                                                         <constraint firstAttribute="width" constant="32" id="cVP-ds-dph"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -141,12 +141,16 @@
                                                         <constraint firstAttribute="width" constant="150" id="E8F-zA-1di"/>
                                                         <constraint firstAttribute="height" constant="32" id="dnj-qS-1dX"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" tag="1002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackcloud" translatesAutoresizingMaskIntoConstraints="NO" id="kbg-bb-35T">
-                                                    <rect key="frame" x="284" y="14" width="32" height="32"/>
+                                                    <rect key="frame" x="284" y="14" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="2Dd-WG-gcb"/>
+                                                        <constraint firstAttribute="height" constant="30" id="r91-cr-y9n"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXa-Mx-K3f">
                                                     <rect key="frame" x="560" y="14" width="32" height="32"/>
@@ -166,10 +170,10 @@
                                                 <constraint firstItem="6SW-qp-dfF" firstAttribute="top" secondItem="6DA-Dx-zYU" secondAttribute="topMargin" constant="6" id="DJZ-q2-QTP"/>
                                                 <constraint firstItem="CXa-Mx-K3f" firstAttribute="leading" secondItem="mnK-eb-Jm5" secondAttribute="trailing" constant="4" id="KS1-da-Y2h"/>
                                                 <constraint firstItem="CXa-Mx-K3f" firstAttribute="bottom" secondItem="mnK-eb-Jm5" secondAttribute="bottom" id="aLE-7W-LGe"/>
-                                                <constraint firstItem="kbg-bb-35T" firstAttribute="centerY" secondItem="6DA-Dx-zYU" secondAttribute="centerY" id="ohj-UZ-vLg"/>
+                                                <constraint firstItem="kbg-bb-35T" firstAttribute="centerY" secondItem="6DA-Dx-zYU" secondAttribute="centerY" constant="-1" id="ohj-UZ-vLg"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="6SW-qp-dfF" secondAttribute="bottom" constant="6" id="q1l-OC-JVZ"/>
                                                 <constraint firstItem="CXa-Mx-K3f" firstAttribute="trailing" secondItem="6DA-Dx-zYU" secondAttribute="trailingMargin" id="xOi-z2-Ngb"/>
-                                                <constraint firstItem="kbg-bb-35T" firstAttribute="centerX" secondItem="6DA-Dx-zYU" secondAttribute="centerX" id="zur-K1-XRg"/>
+                                                <constraint firstItem="kbg-bb-35T" firstAttribute="centerX" secondItem="6DA-Dx-zYU" secondAttribute="centerX" constant="-1" id="zur-K1-XRg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
@@ -209,7 +213,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="21" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpD-5p-KJg">
                                                     <rect key="frame" x="0.0" y="116" width="100" height="21"/>
-                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

@@ -11,14 +11,14 @@ import Foundation
 class Day: NSObject {
 	
 	struct HoursInTheDay {
-		static let Midnight		= "00"
-		static let ThreeAM		= "03"
-		static let SixAM		= "06"
-		static let NineAM		= "09"
-		static let Midday		= "12"
-		static let ThreePM		= "15"
-		static let SixPM		= "18"
-		static let NinePM		= "21"
+		static let Midnight		= "00:00"
+		static let ThreeAM		= "03:00"
+		static let SixAM		= "06:00"
+		static let NineAM		= "09:00"
+		static let Midday		= "12:00"
+		static let ThreePM		= "15:00"
+		static let SixPM		= "18:00"
+		static let NinePM		= "21:00"
 	}
 	
 	var date: String?

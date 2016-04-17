@@ -27,11 +27,13 @@ class CityWeatherViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
 	}
 	
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 		layoutCollectionView()
+
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -157,8 +159,8 @@ class CityWeatherViewController: UIViewController {
 					day.minTempC = minTempC
 					self.city.forecast.append(day)
 					
-					print(day.weatherIconUrl)
-					
+//					print(day.weatherIconUrl)
+
 					//update the main view
 					self.performUIUpdatesOnMain({
 						self.collectionView.reloadData()
@@ -269,11 +271,15 @@ extension CityWeatherViewController: UITableViewDelegate, UITableViewDataSource 
 		let cell = tableView.dequeueReusableCellWithIdentifier(Constants.ReusableTableViewCell, forIndexPath: indexPath)
 		
 		let dayOfWeek = cell.viewWithTag(1001) as! UILabel
-//		let weatherImage = cell.viewWithTag(1002) as! UIImageView
+		let weatherImage = cell.viewWithTag(1002) as! UIImageView
 		let maxTemp = cell.viewWithTag(1003) as! UILabel
 		let minTemp = cell.viewWithTag(1004) as! UILabel
-	
-		
+
+		if let url = NSURL(string: day.weatherIconUrl[4]) {
+			let imageData = NSData(contentsOfURL: url)
+			weatherImage.image = UIImage(data: imageData!)
+		}
+
 		let weekday = getIntegerDayOfWeek(day.date!)
 		dayOfWeek.text = getStringDayOfWeek(weekday)
 		maxTemp.text = day.maxTempC
