@@ -71,7 +71,7 @@ class CityPickerViewController: UIViewController, UISearchBarDelegate {
 		//start a new download
 		let parameters = [JSONParameters.QueryParameter : searchText]
 		
-		searchTask = APIWeatherOnline.sharedInstance().taskForResource(parameters) { [unowned self] jsonResult, error in
+		searchTask = APIWeatherOnline.sharedInstance.taskForResource(parameters) { [unowned self] jsonResult, error in
 			
 			//handle the error case
 			guard error == nil else {

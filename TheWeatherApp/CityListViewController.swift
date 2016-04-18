@@ -24,7 +24,6 @@ class CityListViewController: UITableViewController {
 		self.navigationItem.leftBarButtonItem = self.editButtonItem()
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(addCity))
 		cities = fetchAllCities()
-		
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -58,28 +57,24 @@ class CityListViewController: UITableViewController {
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let city = cities[indexPath.row]
 		let cell = tableView.dequeueReusableCellWithIdentifier(Constants.ReusableTableViewCell)! as UITableViewCell
-		
 		cell.textLabel!.text = city.name
 		cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-		
 		return cell
 	}
 	
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-				print(Reachability.isConnectedToNetwork())
-		
 		if !Reachability.isConnectedToNetwork() {
 			print("DEBUG: Not connected to the internet")
 			self.showAlertViewController(Constants.AlertTitleConnection, message: Constants.AlertMessageConnection)
-		} else {
+			return
+		}
+		
 		let controller = storyboard!.instantiateViewControllerWithIdentifier(Constants.CityWeatherViewController) as! CityWeatherViewController
 		controller.city = cities[indexPath.row]
 		self.navigationController!.pushViewController(controller, animated: true)
-		}
 	}
 	
 	override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-		
 		switch (editingStyle) {
 		case .Delete:
 			let city = cities[indexPath.row]

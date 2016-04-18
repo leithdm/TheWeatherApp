@@ -34,5 +34,4 @@ extension APIWeatherOnline {
 		static let JSON = "json"
 		static let DaysForecast = "7"
 	}
-
 }

@@ -47,7 +47,7 @@ class CityWeatherViewController: UIViewController {
 		
 		//MARK: start search for weather
 		
-		APIWeatherOnline.sharedInstance().taskForResource(parameters) { [unowned self] jsonResult, error in
+		APIWeatherOnline.sharedInstance.taskForResource(parameters) { [unowned self] jsonResult, error in
 			
 			guard error == nil else {
 				print("DEBUG: Error searching for cities: \(error!.localizedDescription)")
