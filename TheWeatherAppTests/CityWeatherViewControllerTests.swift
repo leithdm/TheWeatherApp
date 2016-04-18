@@ -50,6 +50,4 @@ class CityWeatherViewControllerTests: XCTestCase {
 		//Test 1
 		XCTAssertEqual(expected2, result2, "an input of '2016-12-31' should equal a Saturday")
 	}
-	
-	
 }
