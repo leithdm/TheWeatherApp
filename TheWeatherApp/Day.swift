@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import UIKit
+import CoreData
 
-class Day: NSObject {
+class Day: NSManagedObject {
 	
 	struct HoursInTheDay {
 		static let Midnight		= "00:00"
@@ -21,11 +23,12 @@ class Day: NSObject {
 		static let NinePM		= "21:00"
 	}
 	
-	var date: String?
-	var maxTempC: String?
-	var minTempC: String?
-	var maxTemp_hours = [String]()
-	var weatherIconUrl = [String]()
+	@NSManaged var date: String?
+	@NSManaged var maxTempC: String?
+	@NSManaged var minTempC: String?
+	@NSManaged var weatherDescription: String?
+	@NSManaged var maxTemp_hours: [String]
+	@NSManaged var weatherIconUrl: [String]
 	
 	var times = [
 		HoursInTheDay.Midnight,
@@ -37,6 +40,15 @@ class Day: NSObject {
 		HoursInTheDay.SixPM,
 		HoursInTheDay.NinePM
 		]
+
+	override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+		super.init(entity: entity, insertIntoManagedObjectContext: context)
+	}
+
+	init(context: NSManagedObjectContext) {
+		let entity = NSEntityDescription.entityForName("Day", inManagedObjectContext: context)!
+		super.init(entity: entity, insertIntoManagedObjectContext: context)
+	}
 	
 }
 

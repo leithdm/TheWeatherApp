@@ -7,20 +7,28 @@
 //
 
 import Foundation
+import UIKit
+import CoreData
 
-class City: NSObject {
+class City: NSManagedObject {
 	
 	struct Keys {
 		static let Name = "name"
 	}
 	
-	var name: String
-	var forecast = [Day]()
-	
-	init(dictionary: [String : AnyObject]) {
-		name = dictionary[Keys.Name] as! String
+	@NSManaged var name: String
+	@NSManaged var forecast: [Day]
+
+	override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+		super.init(entity: entity, insertIntoManagedObjectContext: context)
 	}
 	
+	init(dictionary: [String : AnyObject], context: NSManagedObjectContext) {
+	let entity = NSEntityDescription.entityForName("City", inManagedObjectContext: context)!
+	super.init(entity: entity, insertIntoManagedObjectContext: context)
+
+	name = dictionary[Keys.Name] as! String
+	}
 }
 
 

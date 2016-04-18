@@ -67,15 +67,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="b01-kC-w6e">
+                                <rect key="frame" x="280" y="280" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0uS-4A-LSw"/>
+                                    <constraint firstAttribute="width" constant="40" id="e3k-hw-rkD"/>
+                                </constraints>
+                            </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c0A-B7-aW5">
                                 <rect key="frame" x="0.0" y="64" width="600" height="190"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJH-M0-3ha">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJH-M0-3ha">
                                         <rect key="frame" x="8" y="8" width="584" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="uxo-FN-n01"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="25"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="28"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -141,7 +148,7 @@
                                                         <constraint firstAttribute="width" constant="150" id="E8F-zA-1di"/>
                                                         <constraint firstAttribute="height" constant="32" id="dnj-qS-1dX"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="22"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -176,7 +183,7 @@
                                                 <constraint firstItem="kbg-bb-35T" firstAttribute="centerX" secondItem="6DA-Dx-zYU" secondAttribute="centerX" constant="-1" id="zur-K1-XRg"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -186,7 +193,7 @@
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZG5-Uk-9Z7">
                                 <rect key="frame" x="0.0" y="253" width="600" height="137"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.85032327586206902" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.70113146551724137" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="137" id="H1O-WS-s5K"/>
                                 </constraints>
@@ -254,6 +261,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="b01-kC-w6e" firstAttribute="centerY" secondItem="Pxq-pv-37F" secondAttribute="centerY" id="2Sr-AK-hhr"/>
+                            <constraint firstItem="b01-kC-w6e" firstAttribute="centerX" secondItem="Pxq-pv-37F" secondAttribute="centerX" id="APB-DB-sUT"/>
                             <constraint firstItem="ATr-vv-Dbz" firstAttribute="top" secondItem="ZG5-Uk-9Z7" secondAttribute="bottom" constant="-2" id="AUh-Kp-4F4"/>
                             <constraint firstItem="c0A-B7-aW5" firstAttribute="leading" secondItem="Pxq-pv-37F" secondAttribute="leadingMargin" constant="-20" id="DKJ-8E-bvq"/>
                             <constraint firstItem="c0A-B7-aW5" firstAttribute="top" secondItem="9sq-eB-tRw" secondAttribute="bottom" id="FBC-fD-4Yg"/>
@@ -267,6 +276,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="b01-kC-w6e" id="zSz-wH-iUD"/>
                         <outlet property="cityName" destination="BJH-M0-3ha" id="QUk-x9-6LT"/>
                         <outlet property="collectionView" destination="ZG5-Uk-9Z7" id="i2W-K8-Aht"/>
                         <outlet property="mainTempValue" destination="QT2-sU-Rnm" id="eEM-jk-2os"/>

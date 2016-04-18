@@ -24,6 +24,8 @@
 		0134AEAA1CC39B41000C5EFE /* CityWeatherViewController-Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0134AEA91CC39B41000C5EFE /* CityWeatherViewController-Constants.swift */; };
 		0134AEAE1CC3A180000C5EFE /* CityPickerViewController-Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0134AEAD1CC3A180000C5EFE /* CityPickerViewController-Constants.swift */; };
 		0134AEB01CC3A49D000C5EFE /* CityListViewController-Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0134AEAF1CC3A49D000C5EFE /* CityListViewController-Constants.swift */; };
+		0197554A1CC42AAA004E9803 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019755491CC42AAA004E9803 /* CoreDataStackManager.swift */; };
+		0197554D1CC42D0E004E9803 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0197554B1CC42D0E004E9803 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		0134AEA91CC39B41000C5EFE /* CityWeatherViewController-Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CityWeatherViewController-Constants.swift"; sourceTree = "<group>"; };
 		0134AEAD1CC3A180000C5EFE /* CityPickerViewController-Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CityPickerViewController-Constants.swift"; sourceTree = "<group>"; };
 		0134AEAF1CC3A49D000C5EFE /* CityListViewController-Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CityListViewController-Constants.swift"; sourceTree = "<group>"; };
+		019755491CC42AAA004E9803 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStackManager.swift; path = "../../Swift/Astronomy Picture Of The Day - NASAs APOD/Astronomy Picture Of The Day - NASAs APOD/CoreDataStackManager.swift"; sourceTree = "<group>"; };
+		0197554C1CC42D0E004E9803 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,8 @@
 		0127557E1CC22FE200959B47 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0197554B1CC42D0E004E9803 /* Model.xcdatamodeld */,
+				019755491CC42AAA004E9803 /* CoreDataStackManager.swift */,
 				012755761CC22C4D00959B47 /* City.swift */,
 				0134AEA71CC28E8E000C5EFE /* Day.swift */,
 			);
@@ -345,12 +351,14 @@
 				0127557B1CC22F7800959B47 /* APIWeatherOnline-Constants.swift in Sources */,
 				012755451CC21EB900959B47 /* AppDelegate.swift in Sources */,
 				0134AEAA1CC39B41000C5EFE /* CityWeatherViewController-Constants.swift in Sources */,
+				0197554D1CC42D0E004E9803 /* Model.xcdatamodeld in Sources */,
 				012755791CC22EA700959B47 /* APIWeatherOnline.swift in Sources */,
 				012755731CC222A100959B47 /* CityListViewController.swift in Sources */,
 				0134AEAE1CC3A180000C5EFE /* CityPickerViewController-Constants.swift in Sources */,
 				012755811CC232D700959B47 /* CityWeatherViewController.swift in Sources */,
 				0134AEB01CC3A49D000C5EFE /* CityListViewController-Constants.swift in Sources */,
 				0134AEA81CC28E8E000C5EFE /* Day.swift in Sources */,
+				0197554A1CC42AAA004E9803 /* CoreDataStackManager.swift in Sources */,
 				012755771CC22C4D00959B47 /* City.swift in Sources */,
 				0134AEA51CC2871B000C5EFE /* TodaysForecastCell.swift in Sources */,
 				012755751CC224A800959B47 /* CityPickerViewController.swift in Sources */,
@@ -601,6 +609,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0197554B1CC42D0E004E9803 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0197554C1CC42D0E004E9803 /* Model.xcdatamodel */,
+			);
+			currentVersion = 0197554C1CC42D0E004E9803 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 012755391CC21EB900959B47 /* Project object */;
 }

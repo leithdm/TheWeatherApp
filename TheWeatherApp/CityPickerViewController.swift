@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol CityPickerViewControllerDelegate {
 	func cityPicker(cityPicker: CityPickerViewController, didPickCity city: City?)
@@ -37,6 +38,10 @@ class CityPickerViewController: UIViewController, UISearchBarDelegate {
 		super.viewDidAppear(animated)
 		self.searchBar.becomeFirstResponder()
 	}
+
+	lazy var sharedContext: NSManagedObjectContext = {
+		return CoreDataStackManager.sharedInstance.managedObjectContext
+	}()
 	
 	
 	//MARK: search bar delegate
@@ -84,7 +89,7 @@ class CityPickerViewController: UIViewController, UISearchBarDelegate {
 					return
 				}
 				
-				let city = City(dictionary: ["name": query])
+				let city = City(dictionary: ["name": query], context: self.sharedContext)
 				self.cities.insert(city, atIndex: 0)
 				
 				dispatch_async(dispatch_get_main_queue()) {

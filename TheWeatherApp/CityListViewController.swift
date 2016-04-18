@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CityListViewController: UITableViewController {
 	
@@ -28,6 +29,23 @@ class CityListViewController: UITableViewController {
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		tableView.reloadData()
+
+		cities = fetchAllCities()
+	}
+
+	//MARK: core data
+
+	lazy var sharedContext: NSManagedObjectContext = {
+		return CoreDataStackManager.sharedInstance.managedObjectContext
+	}()
+
+	func fetchAllCities() -> [City] {
+		let fetchRequest = NSFetchRequest(entityName: "City")
+		do {
+		 return try sharedContext.executeFetchRequest(fetchRequest) as! [City]
+		} catch {
+			return [City]()
+		}
 	}
 
 	
@@ -108,8 +126,9 @@ extension CityListViewController: CityPickerViewControllerDelegate {
 				City.Keys.Name : newCity.name
 			]
 			
-			let cityToBeAdded = City(dictionary: dictionary)
+			let cityToBeAdded = City(dictionary: dictionary, context: sharedContext)
 			self.cities.append(cityToBeAdded)
+			CoreDataStackManager.sharedInstance.saveContext()
 		}
 	}
 }
