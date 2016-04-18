@@ -23,14 +23,13 @@ class CityListViewController: UITableViewController {
 		
 		self.navigationItem.leftBarButtonItem = self.editButtonItem()
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(addCity))
+		cities = fetchAllCities()
 		
 	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		tableView.reloadData()
-
-		cities = fetchAllCities()
 	}
 
 	//MARK: core data
@@ -40,10 +39,11 @@ class CityListViewController: UITableViewController {
 	}()
 
 	func fetchAllCities() -> [City] {
-		let fetchRequest = NSFetchRequest(entityName: "City")
+		let fetchRequest = NSFetchRequest(entityName: Constants.CityEntity)
 		do {
 		 return try sharedContext.executeFetchRequest(fetchRequest) as! [City]
-		} catch {
+		} catch let error as NSError  {
+			print("DEBUG: Error in fetchAllCities(): \(error)")
 			return [City]()
 		}
 	}
@@ -66,38 +66,31 @@ class CityListViewController: UITableViewController {
 	}
 	
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+				print(Reachability.isConnectedToNetwork())
+		
+		if !Reachability.isConnectedToNetwork() {
+			print("DEBUG: Not connected to the internet")
+			self.showAlertViewController(Constants.AlertTitleConnection, message: Constants.AlertMessageConnection)
+		} else {
 		let controller = storyboard!.instantiateViewControllerWithIdentifier(Constants.CityWeatherViewController) as! CityWeatherViewController
-		
 		controller.city = cities[indexPath.row]
-		
 		self.navigationController!.pushViewController(controller, animated: true)
+		}
 	}
 	
 	override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 		
 		switch (editingStyle) {
 		case .Delete:
-			let _ = cities[indexPath.row]
-			
-			// Remove the city from the array
+			let city = cities[indexPath.row]
 			cities.removeAtIndex(indexPath.row)
-			
-			// Remove the row from the table
 			tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
-
+			sharedContext.deleteObject(city)
+			CoreDataStackManager.sharedInstance.saveContext()
 		default:
 			break
 		}
 	}
-	
-//	//MARK: saving the array
-//	
-//	var cityArrayURL: NSURL {
-//		let filename = "CityListArray"
-//		let documentsDirectoryURL: NSURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-//		
-//		return documentsDirectoryURL.URLByAppendingPathComponent(filename)
-//	}
 	
 	//MARK: add a new city
 	
@@ -105,6 +98,22 @@ class CityListViewController: UITableViewController {
 		let controller = self.storyboard!.instantiateViewControllerWithIdentifier(Constants.CityPickerViewController) as! CityPickerViewController
 		controller.delegate = self
 		self.presentViewController(controller, animated: true, completion: nil)
+	}
+	
+	//MARK: helper methods
+	
+	func showAlertViewController(title: String? , message: String?) {
+		performUIUpdatesOnMain {
+			let errorAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+			errorAlert.addAction(UIAlertAction(title: Constants.AlertActionTitle, style: UIAlertActionStyle.Default, handler: nil))
+			self.presentViewController(errorAlert, animated: true, completion: nil)
+		}
+	}
+	
+	func performUIUpdatesOnMain(updates: () -> Void) {
+		dispatch_async(dispatch_get_main_queue()) {
+			updates()
+		}
 	}
 }
 
@@ -123,7 +132,7 @@ extension CityListViewController: CityPickerViewControllerDelegate {
 			}
 			
 			let dictionary: [String : AnyObject] = [
-				City.Keys.Name : newCity.name
+				City.Constants.Name : newCity.name
 			]
 			
 			let cityToBeAdded = City(dictionary: dictionary, context: sharedContext)

@@ -16,6 +16,9 @@ extension CityWeatherViewController {
 		static let ReusableCollectionViewCell	= "TodaysForecastCell"
 		static let ReusableTableViewCell		= "TableViewCell"
 		static let DateFormatter				= "yyyy-MM-dd"
+		static let AlertTitleConnection			= "Error"
+		static let AlertMessageConnection		= "Error connecting to the server"
+		static let AlertActionTitle				= "Ok"
 	}
 	
 	struct JSONParameters {

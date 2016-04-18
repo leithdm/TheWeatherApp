@@ -2,19 +2,8 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
     <entity name="City" representedClassName=".City" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="days" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Day" inverseName="city" inverseEntity="Day" syncable="YES"/>
-    </entity>
-    <entity name="Day" representedClassName=".Day" syncable="YES">
-        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="maxTemp_hours" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="maxTempC" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="minTempC" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="weatherDescription" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="weatherIconUrl" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <relationship name="city" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="City" inverseName="days" inverseEntity="City" syncable="YES"/>
     </entity>
     <elements>
-        <element name="City" positionX="-63" positionY="-18" width="128" height="75"/>
-        <element name="Day" positionX="-54" positionY="-9" width="128" height="150"/>
+        <element name="City" positionX="-63" positionY="-18" width="128" height="60"/>
     </elements>
 </model>

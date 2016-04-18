@@ -15,5 +15,9 @@ extension CityListViewController {
 		static let ReusableTableViewCell		= "CityListCell"
 		static let CityWeatherViewController	= "CityWeatherViewController"
 		static let CityPickerViewController		= "CityPickerViewController"
+		static let AlertTitleConnection			= "Connection offline"
+		static let AlertMessageConnection		= "Please check your internet connection"
+		static let AlertActionTitle				= "Ok"
+		static let CityEntity					= "City"
 	}
 }

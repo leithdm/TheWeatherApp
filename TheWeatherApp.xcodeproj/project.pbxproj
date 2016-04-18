@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		011B07CC1CC4C46700EFBC98 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011B07CB1CC4C46700EFBC98 /* CoreDataStackManager.swift */; };
+		011B07CE1CC4DA1400EFBC98 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011B07CD1CC4DA1400EFBC98 /* Reachability.swift */; };
 		012755451CC21EB900959B47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012755441CC21EB900959B47 /* AppDelegate.swift */; };
 		0127554A1CC21EB900959B47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 012755481CC21EB900959B47 /* Main.storyboard */; };
 		0127554C1CC21EB900959B47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0127554B1CC21EB900959B47 /* Assets.xcassets */; };
@@ -24,7 +26,6 @@
 		0134AEAA1CC39B41000C5EFE /* CityWeatherViewController-Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0134AEA91CC39B41000C5EFE /* CityWeatherViewController-Constants.swift */; };
 		0134AEAE1CC3A180000C5EFE /* CityPickerViewController-Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0134AEAD1CC3A180000C5EFE /* CityPickerViewController-Constants.swift */; };
 		0134AEB01CC3A49D000C5EFE /* CityListViewController-Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0134AEAF1CC3A49D000C5EFE /* CityListViewController-Constants.swift */; };
-		0197554A1CC42AAA004E9803 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019755491CC42AAA004E9803 /* CoreDataStackManager.swift */; };
 		0197554D1CC42D0E004E9803 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0197554B1CC42D0E004E9803 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		011B07CB1CC4C46700EFBC98 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
+		011B07CD1CC4DA1400EFBC98 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		012755411CC21EB900959B47 /* TheWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		012755441CC21EB900959B47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		012755491CC21EB900959B47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,7 +72,6 @@
 		0134AEA91CC39B41000C5EFE /* CityWeatherViewController-Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CityWeatherViewController-Constants.swift"; sourceTree = "<group>"; };
 		0134AEAD1CC3A180000C5EFE /* CityPickerViewController-Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CityPickerViewController-Constants.swift"; sourceTree = "<group>"; };
 		0134AEAF1CC3A49D000C5EFE /* CityListViewController-Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CityListViewController-Constants.swift"; sourceTree = "<group>"; };
-		019755491CC42AAA004E9803 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStackManager.swift; path = "../../Swift/Astronomy Picture Of The Day - NASAs APOD/Astronomy Picture Of The Day - NASAs APOD/CoreDataStackManager.swift"; sourceTree = "<group>"; };
 		0197554C1CC42D0E004E9803 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		011B07CF1CC4E16000EFBC98 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				011B07CD1CC4DA1400EFBC98 /* Reachability.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 		012755381CC21EB900959B47 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				012755781CC22EA700959B47 /* APIWeatherOnline.swift */,
+				011B07CF1CC4E16000EFBC98 /* Network */,
 				0134AEAB1CC3A149000C5EFE /* Constants */,
 			);
 			name = API;
@@ -172,7 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				0197554B1CC42D0E004E9803 /* Model.xcdatamodeld */,
-				019755491CC42AAA004E9803 /* CoreDataStackManager.swift */,
+				011B07CB1CC4C46700EFBC98 /* CoreDataStackManager.swift */,
 				012755761CC22C4D00959B47 /* City.swift */,
 				0134AEA71CC28E8E000C5EFE /* Day.swift */,
 			);
@@ -351,14 +362,15 @@
 				0127557B1CC22F7800959B47 /* APIWeatherOnline-Constants.swift in Sources */,
 				012755451CC21EB900959B47 /* AppDelegate.swift in Sources */,
 				0134AEAA1CC39B41000C5EFE /* CityWeatherViewController-Constants.swift in Sources */,
+				011B07CC1CC4C46700EFBC98 /* CoreDataStackManager.swift in Sources */,
 				0197554D1CC42D0E004E9803 /* Model.xcdatamodeld in Sources */,
 				012755791CC22EA700959B47 /* APIWeatherOnline.swift in Sources */,
 				012755731CC222A100959B47 /* CityListViewController.swift in Sources */,
 				0134AEAE1CC3A180000C5EFE /* CityPickerViewController-Constants.swift in Sources */,
+				011B07CE1CC4DA1400EFBC98 /* Reachability.swift in Sources */,
 				012755811CC232D700959B47 /* CityWeatherViewController.swift in Sources */,
 				0134AEB01CC3A49D000C5EFE /* CityListViewController-Constants.swift in Sources */,
 				0134AEA81CC28E8E000C5EFE /* Day.swift in Sources */,
-				0197554A1CC42AAA004E9803 /* CoreDataStackManager.swift in Sources */,
 				012755771CC22C4D00959B47 /* City.swift in Sources */,
 				0134AEA51CC2871B000C5EFE /* TodaysForecastCell.swift in Sources */,
 				012755751CC224A800959B47 /* CityPickerViewController.swift in Sources */,

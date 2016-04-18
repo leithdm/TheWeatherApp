@@ -19,7 +19,8 @@ class CityPickerViewController: UIViewController, UISearchBarDelegate {
 	
 	var cities = [City]()
 	var delegate: CityPickerViewControllerDelegate?
-	var searchTask: NSURLSessionDataTask? 	// The most recent data download task
+	var searchTask: NSURLSessionDataTask?		//the most recent data download task
+	var scratchContext: NSManagedObjectContext!	//use this context as a temporary store for search query city
 	
 	//MARK: outlets
 	
@@ -32,6 +33,11 @@ class CityPickerViewController: UIViewController, UISearchBarDelegate {
 		super.viewDidLoad()
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: #selector(cancel))
 		
+		let sharedContext = CoreDataStackManager.sharedInstance.managedObjectContext
+		
+		//set the temporary context
+		scratchContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType)
+		scratchContext.persistentStoreCoordinator = sharedContext.persistentStoreCoordinator
 	}
 	
 	override func viewDidAppear(animated: Bool) {
@@ -69,32 +75,34 @@ class CityPickerViewController: UIViewController, UISearchBarDelegate {
 			
 			//handle the error case
 			guard error == nil else {
-				print("Error searching for cities: \(error!.localizedDescription)")
+				print("DEBUG: Error searching for cities: \(error!.localizedDescription)")
 				return
 			}
 			
 			guard let data = jsonResult[JSONParameters.Data] as? NSDictionary else {
-				print("Cannot find key 'data' in \(jsonResult)")
+				print("DEBUG: Cannot find key 'data' in \(jsonResult)")
 				return
 			}
 			
 			guard let request = data[JSONParameters.Request] as? [[String:AnyObject]] else {
-				print("Cannot find key 'request' in \(data)")
+				print("DEBUG: Cannot find key 'request' in \(data)")
 				return
 			}
 			
 			for value in request {
 				guard let query = value[JSONParameters.Query] as? String else {
-					print("Cannot find key 'query' in \(value)")
+					print("DEBUG: Cannot find key 'query' in \(value)")
 					return
 				}
 				
-				let city = City(dictionary: ["name": query], context: self.sharedContext)
-				self.cities.insert(city, atIndex: 0)
-				
-				dispatch_async(dispatch_get_main_queue()) {
-					self.tableView!.reloadData()
-				}
+				self.scratchContext.performBlock({ 
+					let city = City(dictionary: ["name": query], context: self.scratchContext)
+					self.cities.insert(city, atIndex: 0)
+					
+					dispatch_async(dispatch_get_main_queue()) {
+						self.tableView!.reloadData()
+					}
+				})
 			}
 		}
 	}
@@ -112,7 +120,7 @@ class CityPickerViewController: UIViewController, UISearchBarDelegate {
 	
 }
 
-// MARK: - Table View Delegate and Data Source
+// MARK: table view delegate and data source
 
 extension CityPickerViewController: UITableViewDelegate, UITableViewDataSource {
 	
@@ -129,9 +137,7 @@ extension CityPickerViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		let city = cities[indexPath.row]
-		// Alert the delegate
 		delegate?.cityPicker(self, didPickCity: city)
 		self.dismissViewControllerAnimated(true, completion: nil)
 	}
-	
 }

@@ -13,6 +13,4 @@ class TodaysForecastCell: UICollectionViewCell {
 	@IBOutlet weak var hour: UILabel!
 	@IBOutlet weak var imageForecast: UIImageView!
 	@IBOutlet weak var temperature: UILabel!
-	
-    
 }
