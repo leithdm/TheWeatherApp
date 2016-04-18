@@ -28,6 +28,7 @@ This app was developed using:
 - UI Improvements, animations, etc. 
 - Broader unit testing.
 - Reduce bloat in some of the view controllers.
+- Save weather forecast images to Documents directory instead of downloading each time. 
 
 ##Contributing
 
