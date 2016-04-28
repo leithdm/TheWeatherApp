@@ -37,3 +37,5 @@ All contributions are welcome!
 ##License
 
 The Weather App is released under the MIT License.
+
+[![TheWeatherApp](https://j.gifs.com/wp5r6X.gif)](https://youtu.be/Xk0gRHpdwm8)
