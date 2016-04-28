@@ -2,6 +2,8 @@
 
 The Weather App is a universal iOS app for city weather forecasts using the worldweatheronline API
 
+[![TheWeatherApp](https://j.gifs.com/wp5r6X.gif)](https://youtu.be/Xk0gRHpdwm8)
+
 ##Installation
 
 - Unzip and run in Xcode
@@ -37,5 +39,3 @@ All contributions are welcome!
 ##License
 
 The Weather App is released under the MIT License.
-
-[![TheWeatherApp](https://j.gifs.com/wp5r6X.gif)](https://youtu.be/Xk0gRHpdwm8)
